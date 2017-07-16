@@ -56,14 +56,8 @@ class Webpack(object):
 
         try:
             with app.open_resource(webpack_stats, 'r') as stats_json:
-                stats = json.load(stats_json)
-
-                if app.config['WEBPACK_ASSETS_URL']:
-                    self.assets_url = app.config['WEBPACK_ASSETS_URL']
-                else:
-                    self.assets_url = stats['publicPath']
-
-                self.assets = stats['assets']
+                self.assets = json.load(stats_json)
+                self.assets_url = app.config['WEBPACK_ASSETS_URL']
         except IOError:
             raise RuntimeError(
                 "Flask-Webpack requires 'WEBPACK_MANIFEST_PATH' to be set and "
