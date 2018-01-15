@@ -6,7 +6,7 @@ __pycache__/
 *.so
 
 # Distribution / packaging
-flask_webpack/tests/test_app/node_modules/
+flask_webpack_current/tests/test_app/node_modules/
 bin/
 develop-eggs/
 dist/
@@ -47,3 +47,6 @@ docs/_build/
 *.tmproj
 *.tmproject
 tmtags
+
+# webpack build
+flask_webpack_current/tests/test_app/assets/

@@ -62,6 +62,9 @@ class Webpack(object):
             raise RuntimeError(
                 "Flask-Webpack requires 'WEBPACK_MANIFEST_PATH' to be set and "
                 "it must point to a valid json file.")
+        except KeyError:
+            raise RuntimeError(
+                "Flask-Webpack requires 'WEBPACK_ASSETS_URL' to be set")
 
     def _refresh_webpack_stats(self):
         """
