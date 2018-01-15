@@ -170,7 +170,5 @@ Contributors
 - Nick Janetakis <nick.janetakis@gmail.com>
 - Alexey Trifonov <avrong@outlook.com>
 
-.. |PyPI version| image:: https://badge.fury.io/py/flask-webpack.png
-   :target: https://pypi.python.org/pypi/flask-webpack
-.. |Build status| image:: https://secure.travis-ci.org/nickjj/flask-webpack.png
-   :target: https://travis-ci.org/nickjj/flask-webpack
+.. |Build status| image:: https://secure.travis-ci.org/avrong/flask-webpack-current.png
+   :target: https://travis-ci.org/nickjj/flask-webpack-current
