@@ -5,7 +5,7 @@ python:
   - '3.4'
 
 before_install:
-  - 'pip install setuptools flake8 pytest'
+  - 'pip install setuptools pytest'
 
 install:
   - 'pip install --editable .'
@@ -13,5 +13,4 @@ install:
 
 script:
   - 'npm --prefix flask_webpack_current/tests/test_app run build'
-  - 'flake8 .'
   - 'py.test flask_webpack_current/tests/test_app/tests'
