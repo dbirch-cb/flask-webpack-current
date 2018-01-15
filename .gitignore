@@ -49,4 +49,4 @@ docs/_build/
 tmtags
 
 # webpack build
-flask_webpack_current/tests/test_app/assets/
+flask_webpack_current/tests/test_app/build/
