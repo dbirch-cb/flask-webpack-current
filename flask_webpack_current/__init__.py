@@ -22,7 +22,6 @@ class Webpack(object):
         # Setup a few sane defaults.
         app.config.setdefault('WEBPACK_MANIFEST_PATH',
                               '/tmp/themostridiculousimpossiblepathtonotexist')
-        app.config.setdefault('WEBPACK_ASSETS_URL', None)
 
         self._set_asset_paths(app)
 

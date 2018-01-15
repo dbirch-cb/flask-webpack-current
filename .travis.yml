@@ -9,7 +9,9 @@ before_install:
 
 install:
   - 'pip install --editable .'
+  - 'npm --prefix flask_webpack_current/tests/test_app install flask_webpack_current/tests/test_app'
 
 script:
+  - 'npm --prefix flask_webpack_current/tests/test_app run build'
   - 'flake8 .'
-  - 'py.test flask_webpack/tests/test_app/tests'
+  - 'py.test flask_webpack_current/tests/test_app/tests'
