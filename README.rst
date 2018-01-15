@@ -171,4 +171,4 @@ Contributors
 - Alexey Trifonov <avrong@outlook.com>
 
 .. |Build status| image:: https://secure.travis-ci.org/avrong/flask-webpack-current.png
-   :target: https://travis-ci.org/nickjj/flask-webpack-current
+   :target: https://travis-ci.org/avrong/flask-webpack-current.png
