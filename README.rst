@@ -1,4 +1,4 @@
-|PyPI version| |Build status|
+|Build status|
 
 What is Flask-Webpack-Current?
 ^^^^^^^^^^^^^^^^^^^^^^
