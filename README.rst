@@ -1,7 +1,9 @@
 |PyPI version| |Build status|
 
-What is Flask-Webpack?
+What is Flask-Webpack-Current?
 ^^^^^^^^^^^^^^^^^^^^^^
+
+Flask-Webpack for latest webpack-manifest-plugin.
 
 Managing assets can be a serious burden. Here's just a few things you get by
 using this package:
