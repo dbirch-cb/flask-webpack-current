@@ -1,3 +1,4 @@
+import os
 import json
 
 from flask import current_app
@@ -122,4 +123,4 @@ class Webpack(object):
         if asset not in self.assets:
             return None
 
-        return '{0}{1}'.format(self.assets_url, self.assets[asset])
+        return os.path.join(self.assets_url, self.assets[asset])
