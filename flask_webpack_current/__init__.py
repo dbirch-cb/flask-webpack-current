@@ -123,4 +123,8 @@ class Webpack(object):
         if asset not in self.assets:
             return None
 
+        if not self.assets_url:
+            raise RuntimeError(
+                "Flask-Webpack requires 'WEBPACK_ASSETS_URL' to be set")
+
         return os.path.join(self.assets_url, self.assets[asset])
