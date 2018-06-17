@@ -3,7 +3,7 @@
 What is Flask-Webpack-Current?
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Flask-Webpack for latest webpack-manifest-plugin.
+**Flask-Webpack for latest webpack-manifest-plugin**.
 
 Managing assets can be a serious burden. Here's just a few things you get by
 using this package:
@@ -67,7 +67,7 @@ it more than argument it will create as many tags as needed.
 Installation
 ^^^^^^^^^^^^
 
-``pip install Flask-Webpack``
+``pip install git+https://github.com/avrong/flask-webpack-current``
 
 Quick start
 ^^^^^^^^^^^
@@ -75,23 +75,19 @@ Quick start
 ::
 
     from flask import Flask
-    from flask_webpack import Webpack
+    from flask_webpack_current import Webpack
 
     webpack = Webpack()
 
     app = Flask(__name__)
     webpack.init_app(app)
 
-You can view a complete working example in the `test app <https://github.com/nickjj/flask-webpack/tree/master/flask_webpack/tests/test_app>`_.
-
-There's also a `blog post and short video <http://blog.nickjanetakis.com/post/120653461133/manage-your-assets-with-flask-webpack>`_ explaining how to use this extension.
 
 How does it work?
 -----------------
 
 It expects you to have built a manifest file and it handles the rest. You can
-build this manifest file using a plugin I wrote for Webpack. You can find that
-plugin `here <https://github.com/nickjj/manifest-revision-webpack-plugin>`_.
+build this manifest file using ``webpack-manifest-plugin`` plugin.
 
 This process is done automatically upon starting the dev asset server or building
 your assets to prepare for a production release. All of that is taken care of in
@@ -109,20 +105,6 @@ options:
 - ``WEBPACK_ASSETS_URL``: default ``None``
     - **Required:** You would set this to your full domain name or CDN.
 
-Learn more
-^^^^^^^^^^
-
-Webpack knowledge
------------------
-
-Most of what you'll need to learn is related to Webpack specifically but the
-example app in this repo is enough to get you started. Here's a few resources
-to help you get started with Webpack:
-
-- `What is Webpack? <http://webpack.github.io/docs/what-is-webpack.html>`_
-- `Getting started <http://webpack.github.io/docs/tutorials/getting-started/>`_
-- `List of loaders <https://github.com/webpack/docs/wiki/list-of-loaders>`_
-- `Advanced setup with React <https://github.com/webpack/react-starter>`_
 
 Help! My assets do not work outside of development
 --------------------------------------------------
