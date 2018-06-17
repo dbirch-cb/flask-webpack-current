@@ -1,9 +1,56 @@
+Flask-Webpack-Current
+^^^^^^^^^^^^^^^^^^^^^
 |Build status|
 
-What is Flask-Webpack-Current?
-^^^^^^^^^^^^^^^^^^^^^^
-
 **Flask-Webpack for latest webpack-manifest-plugin**.
+
+
+Installation
+^^^^^^^^^^^^
+
+``pip install git+https://github.com/avrong/flask-webpack-current``
+
+
+Quick start
+^^^^^^^^^^^
+
+::
+
+    from flask import Flask
+    from flask_webpack_current import Webpack
+
+    webpack = Webpack()
+
+    app = Flask(__name__)
+    webpack.init_app(app)
+
+
+Settings
+^^^^^^^^
+
+``Flask-Webpack`` is configured like most Flask extensions. Here's the available
+options:
+
+- ``WEBPACK_MANIFEST_PATH``: default ``None``
+    - **Required:** You may consider using ``./build/manifest.json``, it's up to you.
+
+- ``WEBPACK_ASSETS_URL``: default ``None``
+    - **Required:** You would set this to your full domain name or CDN.
+
+
+Global template tags
+^^^^^^^^^^^^^^^^^^^^
+
+- **asset_url_for(asset_relative_path)** to resolve an asset name
+- **javascript_tag(\*asset_relative_paths)** to write out 1 or more script tags
+- **stylesheet_tag(\*asset_relative_paths)** to write out 1 or more stylesheet tags
+
+Both the javascript and stylesheet tags accept multiple arguments. If you give
+it more than argument it will create as many tags as needed.
+
+
+About
+^^^^^
 
 Managing assets can be a serious burden. Here's just a few things you get by
 using this package:
@@ -34,6 +81,18 @@ That means you have free reign to pick and choose what you want without
 having to worry about Flask-Webpack versions. If a new Webpack plugin becomes
 available, you can use it immediately.
 
+
+How does it work?
+-----------------
+
+It expects you to have built a manifest file and it handles the rest. You can
+build this manifest file using ``webpack-manifest-plugin`` plugin.
+
+This process is done automatically upon starting the dev asset server or building
+your assets to prepare for a production release. All of that is taken care of in
+the ``webpack.config.js`` file.
+
+
 What does this package do then?
 -------------------------------
 
@@ -53,61 +112,9 @@ an entire year. If you ever change the hamburger, the md5 will change but you
 do not need to change any of your templates because the ``asset_url_for``
 tag knows how to look it up.
 
-Global template tags
---------------------
-
-- **asset_url_for(asset_relative_path)** to resolve an asset name
-- **javascript_tag(\*asset_relative_paths)** to write out 1 or more script tags
-- **stylesheet_tag(\*asset_relative_paths)** to write out 1 or more stylesheet tags
-
-Both the javascript and stylesheet tags accept multiple arguments. If you give
-it more than argument it will create as many tags as needed.
-
-
-Installation
-^^^^^^^^^^^^
-
-``pip install git+https://github.com/avrong/flask-webpack-current``
-
-Quick start
-^^^^^^^^^^^
-
-::
-
-    from flask import Flask
-    from flask_webpack_current import Webpack
-
-    webpack = Webpack()
-
-    app = Flask(__name__)
-    webpack.init_app(app)
-
-
-How does it work?
------------------
-
-It expects you to have built a manifest file and it handles the rest. You can
-build this manifest file using ``webpack-manifest-plugin`` plugin.
-
-This process is done automatically upon starting the dev asset server or building
-your assets to prepare for a production release. All of that is taken care of in
-the ``webpack.config.js`` file.
-
-Settings
-^^^^^^^^
-
-``Flask-Webpack`` is configured like most Flask extensions. Here's the available
-options:
-
-- ``WEBPACK_MANIFEST_PATH``: default ``None``
-    - **Required:** You may consider using ``./build/manifest.json``, it's up to you.
-
-- ``WEBPACK_ASSETS_URL``: default ``None``
-    - **Required:** You would set this to your full domain name or CDN.
-
 
 Help! My assets do not work outside of development
---------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 I see, so basically the problem is you're using the ``url()`` function in your
 stylesheets and are referencing a relative path to an asset, such as:
