@@ -28,7 +28,9 @@ class Webpack(object):
 
         # We only want to refresh the webpack stats in development mode,
         # not everyone sets this setting, so let's assume it's production.
+        print('XXX APP INITED')
         if app.config.get('DEBUG', False):
+            print('XXXX ATTEMPTING TO REFRESH STATS')
             app.before_request(self._refresh_webpack_stats)
 
         if hasattr(app, 'add_template_global'):
