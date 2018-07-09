@@ -55,6 +55,7 @@ class Webpack(object):
         :return: None
         """
         webpack_stats = app.config['WEBPACK_MANIFEST_PATH']
+        print('XXX IN _SET_ASSET_PATHS')
 
         try:
             with app.open_resource(webpack_stats, 'r') as stats_json:
@@ -67,6 +68,8 @@ class Webpack(object):
         except KeyError:
             raise RuntimeError(
                 "Flask-Webpack requires 'WEBPACK_ASSETS_URL' to be set")
+        except Exception as e:
+            raise e
 
     def _refresh_webpack_stats(self):
         """
@@ -75,6 +78,7 @@ class Webpack(object):
 
         :return: None
         """
+        print('XXX TRYING TO SET ASSET_PATHS')
         self._set_asset_paths(current_app)
 
     def javascript_tag(self, *args):
